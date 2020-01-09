@@ -7,7 +7,7 @@ class Footer extends Component {
       <div className="fixed-bottom">
         <Navbar color="dark" dark>
           <Container>
-            <NavbarBrand>@mania</NavbarBrand>
+            <NavbarBrand>mania</NavbarBrand>
           </Container>
         </Navbar>
       </div>

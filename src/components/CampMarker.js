@@ -1,14 +1,20 @@
-// import React from "react";
-// import { connect } from "react-redux";
+import React, { Component } from "react";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
 
-// function CampMarker() {
-//     const marker = ({ text }) => <LocationOnIcon>{text}</LocationOnIcon>;
-
-//   render() {
-//     return <div></div>;
-//   }
-// }
-
-// const mapStateToProps = state => ({});
-
-// export default connect(mapStateToProps)(CampMarker);
+export default class CampMarker extends Component {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.hover !== this.props.hover) {
+      console.log(nextProps.hover);
+    }
+  }
+  render() {
+    return (
+      <div>
+        <LocationOnIcon>{this.props.key}</LocationOnIcon>
+        {this.props.hover && (
+          <span className="marker-name">{this.props.text}</span>
+        )}
+      </div>
+    );
+  }
+}

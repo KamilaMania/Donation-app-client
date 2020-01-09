@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import GoogleMapReact from "google-map-react";
-import LocationOnIcon from "@material-ui/icons/LocationOn";
-
-const CampMarker = ({ text }) => <LocationOnIcon>{text}</LocationOnIcon>;
+import GoogleMap from "google-map-react";
+import CampMarker from "./CampMarker";
+import { withRouter } from "react-router-dom";
 
 class Map extends Component {
   static defaultProps = {
@@ -12,27 +11,26 @@ class Map extends Component {
     },
     zoom: 4
   };
+  state = {
+    hovered: null
+  };
 
-  createCampMarkers = () => {
-    const { allCamps } = this.props;
-    if (!allCamps) return [];
-    const allMarkers = allCamps.map(camp => (
-      <CampMarker
-        key={camp.id}
-        lat={camp.Latitude}
-        lng={camp.Longitude}
-        text={camp.Name}
-      />
-    ));
-    return allMarkers;
+  _onChildClick = key => {
+    this.props.history.push("/camp/" + key);
+  };
+
+  _onChildMouseEnter = key => {
+    this.setState({ hovered: parseInt(key) });
+  };
+
+  _onChildMouseLeave = key => {
+    this.setState({ hovered: null });
   };
 
   render() {
-    const allMarkers = this.createCampMarkers();
-    console.log(allMarkers);
     return (
       <div style={{ height: "500px", width: "500px" }}>
-        <GoogleMapReact
+        <GoogleMap
           bootstrapURLKeys={{
             key: "AIzaSyA40x4q - YtnCHibRSg98aJToojvkoVsQP8"
           }}
@@ -42,12 +40,22 @@ class Map extends Component {
           onGoogleApiLoaded={({ map, maps }) =>
             console.log("loaded", map, maps)
           }
+          onChildClick={this._onChildClick}
+          onChildMouseEnter={this._onChildMouseEnter}
+          onChildMouseLeave={this._onChildMouseLeave}
         >
-          {allMarkers}
-        </GoogleMapReact>
+          {this.props.allCamps.map(camp => (
+            <CampMarker
+              key={camp.id}
+              lat={camp.Latitude}
+              lng={camp.Longitude}
+              text={camp.Name}
+              hover={camp.id === this.state.hovered}
+            />
+          ))}
+        </GoogleMap>
       </div>
     );
   }
 }
-
-export default Map;
+export default withRouter(Map);

@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
 // import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import Homepage from "./components/Homepage";
+import Footer from "./components/Footer";
+import Camp from "./components/Camp";
 
 class App extends Component {
   render() {
@@ -12,13 +13,11 @@ class App extends Component {
         {/* <Navbar /> */}
         <div className="header">
           <Switch>
-            <Route path="/">
-              <Homepage />
-            </Route>
+            <Route path="/" exact component={Homepage} />
+            <Route path="/camp/:id" exact component={Camp} />
           </Switch>
         </div>
         <div>
-          {/* {" "} */}
           <Footer />
         </div>
       </div>
