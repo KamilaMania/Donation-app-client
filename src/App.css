@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.marker-name {
+  padding: 5px 10px;
+  background-color: #fff;
+  border-radius: 1px solid #000;
+  border-radius: 5px;
+  font-size: 1rem;
+  white-space: nowrap;
+  position: absolute;
+  bottom: -50px;
+  left: -70px;
+  z-index: 4;
+  transform: translateX();
+}
