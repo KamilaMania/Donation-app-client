@@ -29,7 +29,7 @@ class Map extends Component {
 
   render() {
     return (
-      <div style={{ height: "500px", width: "500px" }}>
+      <div style={{ height: "750px", width: "500px" }}>
         <GoogleMap
           bootstrapURLKeys={{
             key: "AIzaSyA40x4q - YtnCHibRSg98aJToojvkoVsQP8"

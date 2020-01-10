@@ -9,10 +9,11 @@ export default function reducer(state = initialState, action = {}) {
       return { allCamps: action.payload.data, selected: null };
     case "SELECT_CAMP":
       const id = action.payload.id;
+      console.log("actions", action.payload);
       const selectedCamp = state.allCamps.find(camp => camp.id === id);
       return {
         ...state,
-        selectedCamp: selectedCamp
+        selectedCamp: action.payload
       };
     default:
       return state;
