@@ -22,10 +22,9 @@ export function fetchCamps() {
   };
 }
 
-/*
 export function selectedCampSuccess(camp) {
   return {
-    type: "FETCH_SELECTED_CAMP_SUCCESS",
+    type: "SELECT_CAMP",
     payload: camp
   };
 }
@@ -42,4 +41,3 @@ export function fetchCamp(campId) {
       .catch(err => console.log("err", err));
   };
 }
-*/

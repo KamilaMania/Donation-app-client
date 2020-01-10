@@ -3,7 +3,7 @@ import "./App.css";
 import { Switch, Route } from "react-router-dom";
 // import Navbar from "./components/Navbar";
 import Homepage from "./components/Homepage";
-import Footer from "./components/Footer";
+//import Footer from "./components/Footer";
 import Camp from "./components/Camp";
 
 class App extends Component {
@@ -17,9 +17,9 @@ class App extends Component {
             <Route path="/camp/:id" exact component={Camp} />
           </Switch>
         </div>
-        <div>
+        {/* <div>
           <Footer />
-        </div>
+        </div> */}
       </div>
     );
   }
