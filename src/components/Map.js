@@ -9,7 +9,7 @@ class Map extends Component {
       lat: 12.156457,
       lng: 30.739305
     },
-    zoom: 4
+    zoom: 1
   };
   state = {
     hovered: null
@@ -29,7 +29,17 @@ class Map extends Component {
 
   render() {
     return (
-      <div style={{ height: "750px", width: "500px" }}>
+      <div
+        style={{
+          height: "450px",
+          width: "80",
+          marginLeft: "10%",
+          marginRight: "10%",
+          position: "center",
+          border: "solid",
+          borderRadius: "5px"
+        }}
+      >
         <GoogleMap
           bootstrapURLKeys={{
             key: "AIzaSyA40x4q - YtnCHibRSg98aJToojvkoVsQP8"

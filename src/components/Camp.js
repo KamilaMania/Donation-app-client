@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchCamp } from "../store/camps/actions";
+import DonateMenu from "./DondateMenu";
 
 class Camp extends React.Component {
   componentDidMount() {
@@ -17,18 +18,19 @@ class Camp extends React.Component {
           <div>
             <h1>{this.props.camp.selectedCamp.Name}</h1>
             <h1>{this.props.camp.selectedCamp.Country}</h1>
-            <h1>{this.props.camp.selectedCamp.Refugges}</h1>
+            <h1>Population :{this.props.camp.selectedCamp.Refugees}</h1>
             <img src={this.props.camp.selectedCamp.urlLogo}></img>
             <h1>{this.props.camp.selectedCamp.Description}</h1>
           </div>
         )}{" "}
+        <div>
+          <DonateMenu />
+        </div>
       </div>
     );
   }
-  // return <h1>Camp name</h1>;
 }
 const mapStateToProps = state => ({
   camp: state.camp
-  //camps: state.camps.camps
 });
 export default connect(mapStateToProps)(Camp);
