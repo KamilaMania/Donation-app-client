@@ -20,7 +20,6 @@ class Homepage extends React.Component {
         {this.props.camps.map((camp, i) => (
           <CampsList key={i} data={camp} />
         ))}
-
         <div>
           <Footer />
         </div>
