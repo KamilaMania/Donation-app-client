@@ -1,17 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import { Navbar, Container, NavbarBrand } from "reactstrap";
+import "./Footer.css";
 
-class Footer extends Component {
+export default class Footer extends React.Component {
   render() {
     return (
-      <div className="fixed-bottom">
-        <Navbar color="dark" dark>
+      <div className="footer">
+        <Navbar color="dark">
           <Container>
-            <NavbarBrand>mania</NavbarBrand>
+            <NavbarBrand></NavbarBrand>
           </Container>
         </Navbar>
       </div>
     );
   }
 }
-export default Footer;

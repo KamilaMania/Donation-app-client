@@ -1,0 +1,14 @@
+.MuiButtonBase-root.m-auto {
+  margin: 50px;
+}
+.card {
+  margin: 15px;
+  height: 350px;
+  width: 350px;
+  display: inline-block;
+}
+.card-image {
+  height: 150px;
+  width: 100%;
+  position: center;
+}
