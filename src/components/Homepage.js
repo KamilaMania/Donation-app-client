@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { fetchCamps } from "../store/camps/actions";
 import Map from "./Map";
 import CampsList from "./CampsList";
-import Footer from "./Footer";
 
 class Homepage extends React.Component {
   componentDidMount() {
@@ -20,10 +19,6 @@ class Homepage extends React.Component {
         {this.props.camps.map((camp, i) => (
           <CampsList key={i} data={camp} />
         ))}
-
-        <div>
-          <Footer />
-        </div>
       </div>
     );
   }
