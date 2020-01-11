@@ -32,7 +32,7 @@ class Map extends Component {
       <div
         style={{
           height: "450px",
-          width: "80",
+          width: "80%",
           marginLeft: "10%",
           marginRight: "10%",
           position: "center",
