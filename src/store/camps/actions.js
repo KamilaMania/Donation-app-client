@@ -12,7 +12,7 @@ export function fetchCamps() {
   return function thunk(dispatch, getState) {
     console.log("Im called!");
     superagent
-      .get(`${baseUrl}/camps`)
+      .get(`${baseUrl}/camps/`)
       .then(response => {
         console.log("fetch camps data test", response);
         const action = campsSuccess(response.body);

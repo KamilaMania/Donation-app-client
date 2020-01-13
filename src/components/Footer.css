@@ -1,8 +1,15 @@
-.footer {
+.footer-banner {
   position: relative;
   bottom: 0;
-  background-color: antiquewhite;
-  margin-top: 10px;
-  height: 100px;
-  margin-top: auto;
+
+  height: 50px;
+  margin-bottom: auto;
+}
+
+footer h5 {
+  background-color: rgba(100, 159, 214, 0.8);
+  border-radius: 5px;
+  position: absolute;
+  left: 2rem;
+  right: 2rem;
 }
