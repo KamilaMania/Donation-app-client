@@ -19,7 +19,7 @@ class App extends Component {
             <Route path="/" exact component={Homepage} />
             <Route path="/camp/:id" exact component={Camp} />
             <Route path="/donation/:id" exact component={Donation} />
-            <Route path="/shoppinglist/" exact component={ShoppingList} />
+            <Route path="/shoppinglist/:id" exact component={ShoppingList} />
             <Route component={Homepage} />
           </Switch>
           <ReduxToastr

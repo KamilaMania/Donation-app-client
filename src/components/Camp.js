@@ -40,10 +40,10 @@ class Camp extends React.Component {
         </Card>
         <br />
         <div>
-          <h3>How can I help?</h3>
+          <h2>How can I help?</h2>
           <br />
           <Button
-            size="small"
+            size="large"
             color="primary"
             component={Link}
             to={"/donation/" + this.props.match.params.id}
@@ -52,7 +52,7 @@ class Camp extends React.Component {
           </Button>
           <br />
           <Button
-            size="small"
+            size="large"
             color="primary"
             component={Link}
             to={"/shoppinglist/" + this.props.match.params.id}

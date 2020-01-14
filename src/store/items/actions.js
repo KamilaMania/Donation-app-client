@@ -12,10 +12,10 @@ export function fetchItems() {
   return function thunk(dispatch, getState) {
     console.log("Im called!");
     superagent
-      .get(`${baseUrl}/items/`)
+      .get(`${baseUrl}/items`)
       .then(response => {
         console.log("fetch items data test", response);
-        const action = itemsSuccess(response.data);
+        const action = itemsSuccess(response.body.data);
         dispatch(action);
       })
       .catch(err => console.log("err", err));
