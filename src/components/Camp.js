@@ -27,6 +27,7 @@ class Camp extends React.Component {
 
               <CardMedia>
                 <img
+                  alt=""
                   className="detailes-image"
                   src={this.props.camp.selectedCamp.urlLogo}
                 ></img>

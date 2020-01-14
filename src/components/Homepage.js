@@ -22,6 +22,10 @@ class Homepage extends React.Component {
     this.setState({ filteredCamps: filtered });
   }
 
+  resetFilter() {
+    this.setState({ filteredCamps: this.props.camps });
+  }
+
   render() {
     const countries = this.props.camps.map(a => a.Country);
     const uniqueCountries = countries.filter((x, i, a) => a.indexOf(x) == i);
@@ -42,7 +46,9 @@ class Homepage extends React.Component {
             {country}
           </button>
         ))}
-        <button className="button-all">All Camps</button>
+        <button className="button-all" onClick={() => this.resetFilter()}>
+          All Camps
+        </button>
 
         <br />
         {this.state.filteredCamps.map((camp, i) => (

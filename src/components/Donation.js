@@ -2,6 +2,9 @@ import React from "react";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import { connect } from "react-redux";
+import { createDonation } from "../store/donations/actions";
+import { Link } from "react-router-dom";
+import { toastr } from "react-redux-toastr";
 
 class Donation extends React.Component {
   state = {
@@ -22,6 +25,22 @@ class Donation extends React.Component {
     this.setState({ [name]: value });
   };
 
+  onSubmit = event => {
+    event.preventDefault();
+    const donationInfo = {
+      amount: this.state.amount,
+      name: this.state.name,
+      campId: this.props.match.params.id
+    };
+
+    this.props.createDonation(donationInfo);
+    this.props.history.push("/");
+    toastr.success(
+      "Transaction is successfully completed",
+      "Thank you for supporting us! We wish you a lovely day."
+    );
+  };
+
   render() {
     return (
       <div id="PaymentForm">
@@ -33,7 +52,20 @@ class Donation extends React.Component {
           number={this.state.number}
         />
         <br />
-        <form className="donation-form">
+        <form
+          className="donation-form"
+          onSubmit={event => this.onSubmit(event)}
+        >
+          <input
+            className="input"
+            type="decimal"
+            name="amount"
+            placeholder="Insert amount you would like to donate "
+            onChange={this.handleInputChange}
+            onFocus={this.handleInputFocus}
+            required
+          />
+          <br />
           <input
             className="input"
             type="tel"
@@ -61,7 +93,7 @@ class Donation extends React.Component {
             type="tel"
             name="expiry"
             placeholder="Expiration date"
-            maxLength={6}
+            maxLength={4}
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
             required
@@ -78,14 +110,26 @@ class Donation extends React.Component {
             required
           />
           <br />
-          <button className="submit-button">DONATE</button>
+          <button
+            className="submit-button"
+            type="submit"
+            component={Link}
+            to={"/"}
+          >
+            DONATE
+          </button>
         </form>
       </div>
     );
   }
 }
+const mapDispatchToProps = dispatch => {
+  return {
+    createDonation: donation => dispatch(createDonation(donation))
+  };
+};
 
 const mapStateToProps = state => ({
   camp: state.camp
 });
-export default connect(mapStateToProps)(Donation);
+export default connect(mapStateToProps, mapDispatchToProps)(Donation);

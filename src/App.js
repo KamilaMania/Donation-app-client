@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Camp from "./components/Camp";
 import Donation from "./components/Donation";
 import ShoppingList from "./components/ShoppingList";
+import ReduxToastr from "react-redux-toastr";
 
 class App extends Component {
   render() {
@@ -19,7 +20,13 @@ class App extends Component {
             <Route path="/camp/:id" exact component={Camp} />
             <Route path="/donation/:id" exact component={Donation} />
             <Route path="/shoppinglist/" exact component={ShoppingList} />
+            <Route component={Homepage} />
           </Switch>
+          <ReduxToastr
+            timeOut={5000}
+            newestOnTop={false}
+            position="top-center"
+          />
         </div>
         <Footer />
       </div>
