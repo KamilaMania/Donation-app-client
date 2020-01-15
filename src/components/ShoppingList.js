@@ -19,6 +19,7 @@ class ShoppingList extends React.Component {
     const rows = this.props.rows.items;
     return (
       <TableContainer component={Paper}>
+        <h1>Shopping List</h1>
         <Table aria-label="caption table">
           <caption></caption>
           <TableHead>
@@ -26,6 +27,7 @@ class ShoppingList extends React.Component {
               <TableCell align="left">ITEM</TableCell>
               <TableCell align="left">PRICE IN EURO</TableCell>
               <TableCell align="left">AMOUNT</TableCell>
+              <TableCell align="left">TOTAL</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -36,6 +38,7 @@ class ShoppingList extends React.Component {
                 </TableCell>
 
                 <TableCell align="left">{row.Price}</TableCell>
+                <TableCell align="left"></TableCell>
                 <TableCell align="left"></TableCell>
               </TableRow>
             ))}
