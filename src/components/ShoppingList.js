@@ -9,15 +9,20 @@ import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import { fetchItems } from "../store/items/actions";
+import DonationForm from "./DonationForm";
+import { createPackage } from "../store/donations/actions";
+
 //import Input from "@material-ui/core/Input";
 
 class ShoppingList extends React.Component {
   state = {
-    cart: []
+    cart: [],
+    totalPrice: 0,
+    showForm: false
   };
 
   componentDidMount() {
-    this.props.dispatch(fetchItems());
+    this.props.fetchItems();
   }
 
   increment = id => {
@@ -60,6 +65,22 @@ class ShoppingList extends React.Component {
     }
   };
 
+  getTotalAmount() {
+    let totalAmount = 0;
+    this.state.cart.map(item => {
+      totalAmount += item.quantity;
+    });
+    return totalAmount;
+  }
+
+  getTotalPrice() {
+    let totalPrice = 0;
+    this.state.cart.map(item => {
+      totalPrice += item.quantity * item.Price;
+    });
+    return totalPrice.toFixed(2);
+  }
+
   getQuantityForItem(id) {
     const cartItem = this.state.cart.find(item => item.id === id);
     return cartItem ? cartItem.quantity : 0;
@@ -91,36 +112,78 @@ class ShoppingList extends React.Component {
             )}
           </TableCell>
           <TableCell align="left" type="text" value="">
-            {itemQuantity * row.Price}
+            {itemQuantity * row.Price} €
           </TableCell>
         </TableRow>
       );
     });
   }
+  showDonationForm() {
+    this.setState({ showForm: true });
+  }
+  onSubmit = (event, obj) => {
+    event.preventDefault();
+    console.log(obj);
+    const packageInfo = {
+      totalPrice: this.getTotalPrice(),
+      package: JSON.stringify(this.state.cart),
+      campId: this.props.match.params.id
+    };
+    this.props.createPackage(packageInfo);
+  };
 
   render() {
     const rows = this.props.rows.items;
-    console.log(this.state.cart);
+    const totalAmount = this.getTotalAmount();
+    const totalPrice = this.getTotalPrice();
+    console.log(this.props.match.params.id);
     return (
-      <TableContainer component={Paper}>
-        <h1>Shopping List</h1>
-        <Table aria-label="caption table">
-          <caption></caption>
-          <TableHead>
-            <TableRow>
-              <TableCell align="left">ITEM</TableCell>
-              <TableCell align="left">PRICE IN EURO</TableCell>
-              <TableCell align="left">QUANTITY</TableCell>
-              <TableCell align="left">TOTAL</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>{this.rowCreator(rows)}</TableBody>
-        </Table>
-      </TableContainer>
+      <>
+        <TableContainer component={Paper}>
+          <h1>Shopping List</h1>
+          <Table aria-label="caption table">
+            <caption></caption>
+            <TableHead>
+              <TableRow>
+                <TableCell align="left">ITEM</TableCell>
+                <TableCell align="left">PRICE IN EURO</TableCell>
+                <TableCell align="left">QUANTITY</TableCell>
+                <TableCell align="left">TOTAL</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {this.rowCreator(rows)}
+
+              <TableRow align="right">
+                <TableCell align="left"></TableCell>
+                <TableCell align="left">TOTAL</TableCell>
+                <TableCell align="left">{totalAmount}</TableCell>
+                <TableCell align="left">{totalPrice} €</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <Button
+          onClick={() => {
+            this.showDonationForm();
+          }}
+        >
+          Submit payment
+        </Button>
+        {this.state.showForm && (
+          <DonationForm onSubmit={this.onSubmit} price={totalPrice} />
+        )}
+      </>
     );
   }
 }
 function mapStateToProps(state) {
   return { rows: state.items };
 }
-export default connect(mapStateToProps)(ShoppingList);
+const mapDispatchToProps = dispatch => {
+  return {
+    createPackage: donation => dispatch(createPackage(donation)),
+    fetchItems: () => dispatch(fetchItems())
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ShoppingList);
