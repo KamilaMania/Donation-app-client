@@ -42,7 +42,7 @@ class Map extends Component {
       >
         <GoogleMap
           bootstrapURLKeys={{
-            key: ""
+            key: "AIzaSyA40x4q - YtnCHibRSg98aJToojvkoVsQP8"
           }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
