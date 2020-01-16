@@ -20,9 +20,12 @@ export default class CampsList extends React.Component {
           <CardMedia className="card-image" image={this.props.data.urlLogo} />
           <CardContent>
             <br />
-            <Typography variant="body2" color="textSecondary" component="p">
-              Population: {this.props.data.Refugees}
-            </Typography>
+            <Typography
+              variant="body2"
+              color="textSecondary"
+              component="p"
+            ></Typography>
+            Population: {this.props.data.Refugees}
           </CardContent>
         </CardActionArea>
       </Card>

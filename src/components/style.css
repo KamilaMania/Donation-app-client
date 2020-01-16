@@ -85,3 +85,20 @@
 .donation-form {
   background-color: mintcream;
 }
+
+.payment-button {
+  background-color: mintcream;
+  width: 30%;
+  height: 40px;
+  border-radius: 4px;
+  font-size: 18px;
+}
+
+.tablecell {
+  background-color: navajowhite;
+  font-size: 20px;
+}
+
+/* .incr-button {
+  background-color: lightseagreen;
+} */

@@ -32,6 +32,7 @@ class Homepage extends React.Component {
 
     return (
       <div>
+        <br />
         <Map allCamps={this.props.camps} />
         <br />
         <br />

@@ -1,7 +1,7 @@
 import React from "react";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 export default class DonationForm extends React.Component {
   state = {
@@ -39,6 +39,7 @@ export default class DonationForm extends React.Component {
   render() {
     return (
       <div id="PaymentForm">
+        <br />
         <Cards
           cvc={this.state.cvc}
           expiry={this.state.expiry}

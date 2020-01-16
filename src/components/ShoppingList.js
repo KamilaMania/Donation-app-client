@@ -11,8 +11,7 @@ import Paper from "@material-ui/core/Paper";
 import { fetchItems } from "../store/items/actions";
 import DonationForm from "./DonationForm";
 import { createPackage } from "../store/donations/actions";
-
-//import Input from "@material-ui/core/Input";
+import "./style.css";
 
 class ShoppingList extends React.Component {
   state = {
@@ -91,19 +90,30 @@ class ShoppingList extends React.Component {
       const itemQuantity = this.getQuantityForItem(row.id);
       return (
         <TableRow key={row.Name}>
-          <TableCell component="th" scope="row">
+          <TableCell style={{ fontSize: "20px" }} component="th" scope="row">
             {row.Name}
           </TableCell>
-          <TableCell align="left">{row.Price}</TableCell>
+          <TableCell style={{ fontSize: "20px" }} align="left">
+            {row.Price} €
+          </TableCell>
           <TableCell align="left">
-            <Button onClick={() => this.increment(row.id)}> ADD ITEM </Button>
+            <Button
+              style={{ fontSize: "15px" }}
+              onClick={() => this.increment(row.id)}
+            >
+              {" "}
+              ADD ITEM{" "}
+            </Button>
             <br />
-            <p type="text" value="">
+            <p style={{ fontSize: "15px" }} type="text" value="">
               {itemQuantity}
             </p>
             <br />
             {itemQuantity ? (
-              <Button onClick={() => this.decrement(row.id)}>
+              <Button
+                style={{ fontSize: "15px" }}
+                onClick={() => this.decrement(row.id)}
+              >
                 {" "}
                 REMOVE ITEM{" "}
               </Button>
@@ -111,7 +121,12 @@ class ShoppingList extends React.Component {
               <div />
             )}
           </TableCell>
-          <TableCell align="left" type="text" value="">
+          <TableCell
+            style={{ fontSize: "20px" }}
+            align="left"
+            type="text"
+            value=""
+          >
             {itemQuantity * row.Price} €
           </TableCell>
         </TableRow>
@@ -141,35 +156,66 @@ class ShoppingList extends React.Component {
       <>
         <TableContainer component={Paper}>
           <h1>Shopping List</h1>
+          <br />
           <Table aria-label="caption table">
             <caption></caption>
             <TableHead>
               <TableRow>
-                <TableCell align="left">ITEM</TableCell>
-                <TableCell align="left">PRICE IN EURO</TableCell>
-                <TableCell align="left">QUANTITY</TableCell>
-                <TableCell align="left">TOTAL</TableCell>
+                <TableCell style={{ fontSize: "25px" }} align="left">
+                  ITEM
+                </TableCell>
+                <TableCell style={{ fontSize: "25px" }} align="left">
+                  PRICE IN EURO
+                </TableCell>
+                <TableCell style={{ fontSize: "25px" }} align="left">
+                  QUANTITY
+                </TableCell>
+                <TableCell style={{ fontSize: "25px" }} align="left">
+                  TOTAL
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {this.rowCreator(rows)}
 
               <TableRow align="right">
-                <TableCell align="left"></TableCell>
-                <TableCell align="left">TOTAL</TableCell>
-                <TableCell align="left">{totalAmount}</TableCell>
-                <TableCell align="left">{totalPrice} €</TableCell>
+                <TableCell className="tablecell" align="left"></TableCell>
+                <TableCell
+                  style={{ fontSize: "20px" }}
+                  className="tablecell"
+                  align="left"
+                >
+                  TOTAL
+                </TableCell>
+                <TableCell
+                  style={{ fontSize: "20px" }}
+                  className="tablecell"
+                  align="left"
+                >
+                  {totalAmount} items
+                </TableCell>
+                <TableCell
+                  style={{ fontSize: "20px" }}
+                  className="tablecell"
+                  align="left"
+                >
+                  {totalPrice} €
+                </TableCell>
               </TableRow>
             </TableBody>
           </Table>
         </TableContainer>
-        <Button
+        <br />
+        <button
+          className="payment-button"
           onClick={() => {
             this.showDonationForm();
           }}
         >
           Submit payment
-        </Button>
+        </button>
+        <br />
+
         {this.state.showForm && (
           <DonationForm onSubmit={this.onSubmit} price={totalPrice} />
         )}
