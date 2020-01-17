@@ -7,7 +7,9 @@
 App was created for non-profit organization to quickly implement a platform to receive online donations and necessary  supplies for refugee camps in Africa.
 
 
-## Demo
+## Screenshot
+
+![my screenshot](https://user-images.githubusercontent.com/54743843/72626422-fb051980-394a-11ea-968e-75c4d232f8dc.png)
 
 
 
