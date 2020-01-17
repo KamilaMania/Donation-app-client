@@ -1,6 +1,10 @@
 # Charity Donation App Concept 
 
-Made by Kamila Mania
+
+## Dercription
+
+Donation App was created for non-profits to quickly implement a platform to receive online donations.
+
 
 ## Screenshot
   
