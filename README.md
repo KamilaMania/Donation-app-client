@@ -12,6 +12,7 @@ App was created for non-profit organization to quickly implement a platform to r
 
 ## Built with:
 React-Redux
+
 Material Ui
 
 ## Installation
