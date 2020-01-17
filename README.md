@@ -11,9 +11,18 @@ App was created for non-profit organization to quickly implement a platform to r
 
 
 ## Built with:
-
+React-Redux
+Material Ui
 
 ## Installation
+
+
+```
+# Clone this repository:
+$ git clone git@github.com:KamilaMania/Donation-app-client.git
+ 
+
+
 
 
 ## Link to Deployed App:
