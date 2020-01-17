@@ -20,7 +20,8 @@ Material Ui
 ```
 # Clone this repository:
 $ git clone git@github.com:KamilaMania/Donation-app-client.git
- 
+
+```
 
 
 
