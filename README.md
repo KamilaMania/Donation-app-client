@@ -7,13 +7,15 @@
 App was created for non-profit organization to quickly implement a platform to receive online donations and necessary  supplies for refugee camps in Africa.
 
 
-## Screenshot
+## Demo
+
+
 
 
 ## Built with:
-React-Redux
+[React-Redux]
 
-Material Ui
+[Material Ui]
 
 ## Installation
 
