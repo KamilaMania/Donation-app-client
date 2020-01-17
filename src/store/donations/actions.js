@@ -2,7 +2,7 @@ import superagent from "superagent";
 import { toastr } from "react-redux-toastr";
 import { push } from "connected-react-router";
 
-const baseUrl = "http://localhost:4000";
+const baseUrl = "https://radiant-stream-83963.herokuapp.com";
 
 export function createDonationSuccess(donation) {
   return {

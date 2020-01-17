@@ -1,5 +1,5 @@
 import superagent from "superagent";
-const baseUrl = "http://localhost:4000";
+const baseUrl = "https://radiant-stream-83963.herokuapp.com";
 
 export function itemsSuccess(items) {
   return {
