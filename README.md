@@ -17,18 +17,31 @@ This is the frontend part of the app, the backend you can check [here](https://g
 
 ## Built with:
 React
+
 React-Router
+
 Redux
+
 Redux-Thunk
+
 Material Ui
 
 ## Installation
+
+The project was bootstrapped using create-react-app.
 
 
 ```
 # Clone this repository:
 $ git clone git@github.com:KamilaMania/Donation-app-client.git
 
+```
+Install dependecies using npm
+
+Run it with:
+
+```
+npm run start
 ```
 
 
