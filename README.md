@@ -16,8 +16,10 @@ This is the frontend part of the app, the backend you can check [here](https://g
 
 
 ## Built with:
-React-Redux
-
+React
+React-Router
+Redux
+Redux-Thunk
 Material Ui
 
 ## Installation
