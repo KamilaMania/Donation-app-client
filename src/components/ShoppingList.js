@@ -25,7 +25,6 @@ class ShoppingList extends React.Component {
   }
 
   increment = id => {
-    console.log(this.state, "state");
     const { cart } = this.state;
     const { rows } = this.props;
     const itemToAdd = rows.items.find(item => item.id === id);
@@ -138,7 +137,7 @@ class ShoppingList extends React.Component {
   }
   onSubmit = (event, obj) => {
     event.preventDefault();
-    console.log(obj);
+
     const packageInfo = {
       totalPrice: this.getTotalPrice(),
       package: JSON.stringify(this.state.cart),
@@ -151,7 +150,7 @@ class ShoppingList extends React.Component {
     const rows = this.props.rows.items;
     const totalAmount = this.getTotalAmount();
     const totalPrice = this.getTotalPrice();
-    console.log(this.props.match.params.id);
+
     return (
       <>
         <TableContainer component={Paper}>

@@ -13,7 +13,6 @@ export function createDonationSuccess(donation) {
 
 export function createDonation(donation) {
   return function thunk(dispatch, getState) {
-    console.log({ ...donation });
     superagent
       .post(`${baseUrl}/donation`)
       .send(donation)
@@ -35,7 +34,6 @@ export function createDonation(donation) {
 
 export function createPackage(donation) {
   return function thunk(dispatch, getState) {
-    console.log({ ...donation });
     superagent
       .post(`${baseUrl}/donationItem`)
       .send(donation)

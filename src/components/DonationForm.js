@@ -1,7 +1,6 @@
 import React from "react";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
-//import { Link } from "react-router-dom";
 
 export default class DonationForm extends React.Component {
   state = {
@@ -18,7 +17,6 @@ export default class DonationForm extends React.Component {
     }
   }
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
     if (
       nextProps.price &&
       (!this.props.price || nextProps.price !== this.props.price)

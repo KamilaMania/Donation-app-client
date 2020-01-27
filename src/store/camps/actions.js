@@ -10,11 +10,9 @@ export function campsSuccess(camps) {
 
 export function fetchCamps() {
   return function thunk(dispatch, getState) {
-    console.log("Im called!");
     superagent
       .get(`${baseUrl}/camps/`)
       .then(response => {
-        console.log("fetch camps data test", response);
         const action = campsSuccess(response.body);
         dispatch(action);
       })
@@ -34,7 +32,6 @@ export function fetchCamp(campId) {
     superagent
       .get(`${baseUrl}/camp/${campId}`)
       .then(response => {
-        console.log("fetch camp data test", response);
         const action = selectedCampSuccess(response.body);
         dispatch(action);
       })

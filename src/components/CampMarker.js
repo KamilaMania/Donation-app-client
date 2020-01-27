@@ -4,7 +4,6 @@ import LocationOnIcon from "@material-ui/icons/LocationOn";
 export default class CampMarker extends Component {
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.hover !== this.props.hover) {
-      console.log(nextProps.hover);
     }
   }
   render() {

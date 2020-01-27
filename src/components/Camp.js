@@ -9,13 +9,10 @@ import { Link } from "react-router-dom";
 
 class Camp extends React.Component {
   componentDidMount() {
-    console.log(this.props);
     this.props.dispatch(fetchCamp(this.props.match.params.id));
-    console.log(this.props.match.params.id);
   }
 
   render() {
-    console.log(this.props, "this props");
     return (
       <div>
         <Card className="detailed-card">

@@ -7,7 +7,7 @@ import DonationForm from "./DonationForm";
 class Donation extends React.Component {
   onSubmit = (event, obj) => {
     event.preventDefault();
-    console.log(obj);
+
     const donationInfo = {
       amount: obj.amount,
       name: obj.name,
