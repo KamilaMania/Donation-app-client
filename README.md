@@ -47,8 +47,6 @@ npm run start
 
 
 
-## Link to Deployed App:
-https://keen-mahavira-80a87a.netlify.com/
 
   
   
